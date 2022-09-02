@@ -1,4 +1,4 @@
-Jogo da velha em C#.
+Jogo da velha em C# (tictactoe.cs)
 
 Esse jogo consiste de 2 jogadores, o jogador 1 sempre começará jogando e representará o X e o jogador 2 represetará o O. Vence a partida quem conseguir formar uma reta primeiro, podendo ser tanto na vertical, horizontal ou diagonal.
 
