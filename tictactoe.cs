@@ -4,10 +4,11 @@ namespace tictactoe
 {
     internal class tictactoe
     {
-        static String[] ttt = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
-        static String[] ttt2 = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
-        static int jogador = 1;
+        static String[] ttt = {" ", " ", " ", " ", " ", " ", " ", " ", " "}; // Matriz inicial, com todos as posições vazias
+        static String[] ttt2 = {"1", "2", "3", "4", "5", "6", "7", "8", "9"}; // Matriz utilizada na explicação do jogo
+        static int jogador = 1; // Jogador 1 começa jogando
         static int vez;
+        // Esse método printa na tela as informações necessárias para os jogadores poderem jogar
         static void regras() {
             Console.WriteLine("Os jogadores devem inserir números de 1 a 9, de acordo com o tabuleiro a seguir:\n");
             Console.WriteLine("  {0} | {1} | {2} ", ttt2[6], ttt2[7], ttt2[8]);
@@ -17,6 +18,7 @@ namespace tictactoe
             Console.WriteLine("  {0} | {1} | {2} \n", ttt2[0], ttt2[1], ttt2[2]);
             Console.WriteLine("O jogador 1 inicia a partida e será o X, o jogador 2 será o O.");
         }
+        // Esse método checa de qual jogador é a vez atualmente
         static int checavez(){
             if ((jogador % 2) != 0) {
                 Console.WriteLine ("Vez do jogador 1!");
@@ -27,6 +29,11 @@ namespace tictactoe
                 return 2;
             }
         }
+        // Esse método checa se um dos jogadores ganhou, se a partida terminou ou empate ou se a partida deve continuar
+        // 1 -> Vitória do Jogador 1
+        // 2 -> Vitória do Jogador 2
+        // 3 -> Empate
+        // 4 -> Partida continua
         static int checastatus(int jogador){
             if (ttt[0] == ttt[3] & ttt[3] == ttt[6] && ttt[0] != " ")
                 return jogador;
@@ -49,6 +56,7 @@ namespace tictactoe
             else
                 return 4;
         }
+        // Esse método imprime o tabuleiro atualizado na tela, ele insere o movimento do jogador antes de imprimir
         static void imprimetabuleiro(int entrada, int vez) {
             if (vez == 1) 
                 ttt[entrada-1] = "X";
@@ -66,7 +74,7 @@ namespace tictactoe
             string entrada;
             int entradaint;
             tictactoe.regras();
-            
+            // Ficará em loop enquanto não houver vencedor ou ocorrer empate
             do {
                 vez = checavez();
                 Console.WriteLine("Entre um número de 1 a 9, de acordo com o exemplo inicial:");
